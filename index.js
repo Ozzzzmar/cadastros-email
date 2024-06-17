@@ -8,12 +8,18 @@ console.log("Olá, por favor, digite o seu e-mail");
 
 process.stdin.on("data", function (data) {
     let entrada = data.toString().trim();
+    let email = false;
 
     for(let i = 0; i < cadastros.length; i++){
         if(entrada == cadastros[i].email){
-            console.log("Seja Bem Vindo!");
-        }else{
-            console.log("Você não está cadastrado!");
+            email = true;
         }
     }
+
+    if(email){
+        console.log("Seja Bem Vindo!");
+    }else{
+        console.log("Você não está cadastrado!");
+    }
+process.exit();
 });
